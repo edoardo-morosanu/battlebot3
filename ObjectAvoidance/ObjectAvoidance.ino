@@ -12,7 +12,6 @@ const int _turnSpeed = 200;   // Speed during turns
 const int _timeToTurnRight = 1000;
 
 float _duration_us, _distance_cm;
-const float _constant = 343 * 100 * (1/2) * (1/1000000);
 
 void setup() {
   // Set motor control pins as outputs
@@ -59,7 +58,7 @@ void loop() {
   _duration_us = pulseIn(ECHO_PIN, HIGH);
 
   // calculate the distance
-  _distance_cm = _constant * _duration_us;
+  _distance_cm = 0.017 * _duration_us; // 343 * 100 * (1/2) * (1/1000000) = 0.017
 
   if (_distance_cm <= 15) {
     turnRight();
