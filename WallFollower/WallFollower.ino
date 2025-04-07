@@ -350,7 +350,7 @@ void followLine() {
 
 // --- Wall Following Function --- //
 void followRightWall(float frontDistance, float rightDistance) {
-      controlGripper(false);
+  controlGripper(false);
   // First, check for black square
   checkForSquare();
 
@@ -417,12 +417,12 @@ void followRightWall(float frontDistance, float rightDistance) {
 // --- Start Race Sequence --- //
 void startRace() {
   float frontDistance = getDistance(TRIG_FRONT, ECHO_FRONT);
-
-  while (frontDistance < 25) {
+  
+  while (frontDistance > 25) {
     frontDistance = getDistance(TRIG_FRONT, ECHO_FRONT);
     delay(50);
   }
-  while (frontDistance > 25) {
+  while (frontDistance < 25) {
     frontDistance = getDistance(TRIG_FRONT, ECHO_FRONT);
     delay(50);
   }
